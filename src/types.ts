@@ -111,7 +111,8 @@ export interface StatsResult {
 export interface PlanResult {
   plan: string;
   limits: {
-    callsPerMonth: number | 'unlimited';
+    /** Number of calls allowed per month. null when plan is unlimited (JSON serializes Infinity as null). */
+    callsPerMonth: number | null;
     ratePerMinute: number;
   };
 }

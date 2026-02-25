@@ -157,7 +157,7 @@ export class SafeChat {
         signal: controller.signal,
       });
     } catch (err: unknown) {
-      if (err instanceof DOMException && err.name === 'AbortError') {
+      if (err instanceof Error && err.name === 'AbortError') {
         throw new Error(`SafeChat request timed out after ${this.timeout}ms`);
       }
       throw err;
